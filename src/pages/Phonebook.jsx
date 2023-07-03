@@ -35,7 +35,6 @@ const Phonebook = () => {
     return (
         <section>
             <Container maxWidth='xs'>
-                <h1>Phone Book</h1>
             <Form />
             <Card>
                 <label htmlFor="search"></label> 
