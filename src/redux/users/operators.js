@@ -12,9 +12,9 @@ const token = {
     }
 };
 
-export const signUpUser = createAsyncThunk("user/signup", async data => {
+export const registerUser = createAsyncThunk("user/register", async data => {
     try {
-        const response = await axios.post("/users/signup", data);
+        const response = await axios.post("/users/register", data);
         token.set(response.data.token);
         return response.data;
     } catch (error) {

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-//import { signUpUser } from './operators';
+//import { registerUser } from './operators';
 
 const initialState = {
     user: { name: null, email: null },
@@ -13,7 +13,7 @@ const userSlice = createSlice({
     initialState,
     reducers: {},
     // extraReducers: builder => {
-    //     builder.addCase(signUpUser.fulfilled)
+    //     builder.addCase(registerUser.fulfilled)
     // },
 });
 

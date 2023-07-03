@@ -1,7 +1,7 @@
 import { Button, Card, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     return (
         <div style={{
                 display: 'flex',
@@ -18,6 +18,16 @@ const Login = () => {
                         alignItems: 'center',
                     }}
                 >
+                     <label htmlFor='name'></label>
+                    <TextField sx={{ margin: '5px' }}
+                        label="Full name"
+                        type="text"
+                        required
+                        fullWidth={true}
+                        id="name"
+                        aria-describedby="Please enter your name"
+                        variant="standard"
+                    />
                     <label htmlFor='email'></label>
                     <TextField sx={{ margin: '5px' }}
                         label="Email"
@@ -43,8 +53,8 @@ const Login = () => {
                         <Button sx={{margin: '0 10px 0 0'}}type="submit" variant="contained">
                             Continue
                         </Button>
-                        <Link to={'/register'}>
-                            <Button color="secondary">Sign up</Button>
+                        <Link to={'/login'}>
+                            <Button color="secondary">Login</Button>
                         </Link>
                     </div>
                 </form>
@@ -53,4 +63,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

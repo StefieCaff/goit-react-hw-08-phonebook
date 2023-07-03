@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 import Phonebook from "pages/Phonebook";
 import HeaderNav from './HeaderNav';
 import Login from 'pages/Login';
-import Signup from 'pages/Signup';
+import Register from 'pages/Register';
 
 export const App = () => {
   return (
@@ -18,8 +18,8 @@ export const App = () => {
           element = {<Phonebook/>}
         />
         <Route
-          path="/signup"
-          element={<Signup />}
+          path="/register"
+          element={<Register />}
         />
         <Route
           path="/login"
