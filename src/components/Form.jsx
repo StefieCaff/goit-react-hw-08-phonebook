@@ -46,54 +46,54 @@ const Form = () => {
 
     return (
         <section>
-            <Card sx={{ padding: '10px 15px' }}>
-                <form onSubmit={handleSubmit}>
+            <Card sx={{ padding: '20px 20px' }}>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="name"></label> 
-                <TextField
-                type="text"
-                name='name'
-                value={formData.name}
-                onChange={e => 
-                    setFormData(prev => ({
+                <TextField sx={{ margin: '0 0 10px 0' }}
+                    type="text"
+                    name='name'
+                    value={formData.name}
+                    onChange={e => 
+                        setFormData(prev => ({
                         ...prev,
                         [e.target.name]: e.target.value,
-                    }))
-                }
-                pattern="[A-Za-z\- ]{1,30}"
-                title="Name must contain minimum 1, maximum 30 characters. In this case characters include Upper and lowercase letters, apostrophe with following letter, and a max of two spaces between characters. For example: Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                required
-                fullWidth={true}
-                id="name"
-                label="Name"
-                aria-describedby="Please enter your name"
-                variant="standard"
+                        }))
+                    }
+                    pattern="[A-Za-z\- ]{1,30}"
+                    title="Name must contain minimum 1, maximum 30 characters. In this case characters include Upper and lowercase letters, apostrophe with following letter, and a max of two spaces between characters. For example: Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                    required
+                    fullWidth={true}
+                    id="name"
+                    label="Name"
+                    aria-describedby="Please enter your name"
+                    variant="standard"
                 />
-            <label htmlFor='number'></label>
-            <TextField
-                type="tel"
-                name='number'
-                value={formData.number}
-                onChange={e => 
-                    setFormData(prev => ({
+                <label htmlFor='number'></label>
+                <TextField
+                    type="tel"
+                    name='number'
+                    value={formData.number}
+                    onChange={e => 
+                        setFormData(prev => ({
                         ...prev,
                         [e.target.name]: e.target.value,
-                    }))
-                }
-                pattern="[0-9\s+\-]{6,19}"
-                title="Phone number must be at least 6 digits max 19 digits. In this case digits include single spaces between numbers, dashes, parentheses and number can start with +"
-                required
-                fullWidth={true}
-                id="number"
-                label="Number"
-                aria-describedby="Please enter your number"
-                variant="standard"
-            />    
-            <Button color="secondary" fullWidth={true} aria-label="add-contact button" type='submit' variant="outlined" endIcon={<AddIcon/>}>
-                Add
-            </Button>
-          
-            </form></Card></section>
-    
+                        }))
+                    }
+                    pattern="[0-9\s+\-]{6,19}"
+                    title="Phone number must be at least 6 digits max 19 digits. In this case digits include single spaces between numbers, dashes, parentheses and number can start with +"
+                    required
+                    fullWidth={true}
+                    id="number"
+                    label="Number"
+                    aria-describedby="Please enter your number"
+                    variant="standard"
+                />    
+                <Button sx={{ margin: '50px 0 0 0' }} color="primary" fullWidth={true} aria-label="add-contact button" type='submit' variant="outlined" endIcon={<AddIcon/>}>
+                    Add
+                </Button>
+            </form>
+            </Card>
+        </section>
     )
 };
 
