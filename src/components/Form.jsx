@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Notify } from 'notiflix';
 
-import { getContacts, postContacts } from 'redux/operators';
-import { getPhonebook } from 'redux/selectors';
+import { getContacts, postContacts } from 'redux/contacts/operators';
+import { getPhonebook } from 'redux/contacts/selectors';
 
 import { TextField, Button, Card } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
