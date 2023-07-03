@@ -1,0 +1,7 @@
+//*not working need to fix this
+
+
+// import axios from "axios";
+// export const contactsURL = axios.create({
+//     baseURL: axios.defaults.baseURL = 'https://6495c988b08e17c91792ad8a.mockapi.io',
+// });
