@@ -44,7 +44,7 @@ const Login = () => {
                             Continue
                         </Button>
                         <Link to={'/register'}>
-                            <Button color="secondary">Sign up</Button>
+                            <Button color="secondary">Register</Button>
                         </Link>
                     </div>
                 </form>

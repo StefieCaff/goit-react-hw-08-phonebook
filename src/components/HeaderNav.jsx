@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,9 +11,13 @@ import IconButton from '@mui/material/IconButton';
 
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import { Link } from 'react-router-dom';
+import { isLoggedIn } from 'redux/users/selectors';
+import { logOutUser } from 'redux/users/operators';
 
 const HeaderNav = () => {
     const nav = useNavigate();
+    const dispatch = useDispatch();
+    const loggedIn = useSelector(isLoggedIn);
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -30,11 +36,23 @@ const HeaderNav = () => {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Phonebook
                 </Typography>
-                <Button
-                    color="inherit"
-                    onClick={() => nav('/login')}
-                >Login
-                </Button>
+                {loggedIn
+                    ? (
+                    <Button
+                        color="inherit"
+                        onClick={() => dispatch(logOutUser())}
+                    >        
+                        Logout
+                    </Button>
+                    )
+                    : (
+                    <Button
+                        color="inherit"
+                        onClick={() => nav('/login')}
+                    >
+                        Login
+                    </Button>
+                )}
             </Toolbar>
             </AppBar>
         </Box>

@@ -1,7 +1,26 @@
 import { Button, Card, TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { registerUser } from 'redux/users/operators';
 
 const Register = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+    });
+    const nav = useNavigate();
+    const dispatch = useDispatch();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(registerUser(formData).then(() => {
+            // add error checking
+            nav('/');
+        }))
+    };
+
     return (
         <div style={{
                 display: 'flex',
@@ -13,13 +32,20 @@ const Register = () => {
         >
             <Card sx={{ padding: '20px 20px' }}>
                 <form style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}
+                    onSubmit={handleSubmit}
+                    
                 >
                      <label htmlFor='name'></label>
                     <TextField sx={{ margin: '5px' }}
+                        name="name"
+                        value={formData.name}
+                        onChange={e =>
+                            setFormData({ ...formData, [e.target.name]: e.target.value })
+                        }
                         label="Full name"
                         type="text"
                         required
@@ -30,6 +56,11 @@ const Register = () => {
                     />
                     <label htmlFor='email'></label>
                     <TextField sx={{ margin: '5px' }}
+                        name="email"
+                        value={formData.email}
+                        onChange={e =>
+                            setFormData({ ...formData, [e.target.name]: e.target.value })
+                        }
                         label="Email"
                         type="email"
                         required
@@ -40,6 +71,11 @@ const Register = () => {
                     />
                     <label htmlFor='password'></label>
                     <TextField sx={{ margin: '5px' }}
+                        name="password"
+                        value={formData.password}
+                        onChange={e =>
+                            setFormData({ ...formData, [e.target.name]: e.target.value })
+                        }
                         label="Password"
                         type="password"
                         required
@@ -50,7 +86,7 @@ const Register = () => {
                         autoComplete='true'
                     />
                     <div style={{margin: '10px 15px'}}>
-                        <Button sx={{margin: '0 10px 0 0'}}type="submit" variant="contained">
+                        <Button sx={{margin: '0 10px 0 0'}} type="submit" variant="contained">
                             Continue
                         </Button>
                         <Link to={'/login'}>
