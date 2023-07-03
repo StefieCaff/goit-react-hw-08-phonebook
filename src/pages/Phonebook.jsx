@@ -19,10 +19,12 @@ const Phonebook = () => {
     const contacts = useSelector(getPhonebook)
     const search = useSelector(getFilter);
     const searchedContacts = searchFunction(contacts, search);
+
     useEffect(() => {
         dispatch(getContacts());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    }, [])
+    
     const onDelete = (id) => {
         dispatch(deleteContacts(id)).then(() => {
             dispatch(getContacts());
@@ -31,12 +33,13 @@ const Phonebook = () => {
             console.log(deletedContact, 'dC');
         });
     };
-    
+    console.log(contacts, 'c');
+    console.log(searchedContacts, 'sc');
     return (
         <section>
             <Container maxWidth='xs'>
             <Form />
-            <Card>
+            <Card sx={{ padding: '10px 15px' }}>
                 <label htmlFor="search"></label> 
                 <TextField
                     type="text"
@@ -48,10 +51,10 @@ const Phonebook = () => {
                     aria-describedby="my-helper-text"
                     variant="standard"
                 />
-                <h3>Contacts</h3>
-                {searchedContacts.length > 0 ?
+                    <h3>Contacts</h3>
+                    {contacts.length > 0 ?
                     <List>
-                        {contacts.length > 0 ?
+                        {searchedContacts.length > 0 ?
                             searchedContacts.map(contact => (
                                 <ListItem key={contact.id}>
                                     <p>{contact.name}</p>
@@ -64,10 +67,10 @@ const Phonebook = () => {
                                     </IconButton>
                                 </ListItem>
                             ))
-                            : <p>There are not any contacts saved yet.</p>
+                            : <p>There are no saved contacts that match your search .</p>
                         }
                     </List>
-                    : <p>There are no saved contacts that match your search .</p>}
+                    : <p>There are not any contacts saved yet.</p>}
             </Card>
             </Container>
         </section>

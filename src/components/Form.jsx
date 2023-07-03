@@ -46,7 +46,7 @@ const Form = () => {
 
     return (
         <section>
-            <Card>
+            <Card sx={{ padding: '10px 15px' }}>
                 <form onSubmit={handleSubmit}>
                 <label htmlFor="name"></label> 
                 <TextField
