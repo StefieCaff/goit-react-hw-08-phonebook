@@ -1,25 +1,45 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Card, Container } from "@mui/material";
 
-const Welcome = () => {
+const Welcome = ({className}) => {
     const nav = useNavigate();
     return (
-        <div>Welcome
-            <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => nav('/login')}
+        <section className={className}>
+            <Container maxWidth='xs'
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    
+                }}
             >
-                Login
-            </Button>          
-            <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => nav('/register')}        
-            >
-                Register
-            </Button>
-        </div>
+                <h1>Welcome to PhoneBook!</h1>
+                <Card sx={{
+                    padding: '10px 15px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between'
+                }}>
+                    
+                    <h2>Keep your contact's information secure</h2>
+                    <p>Registered? Use an email and password to login!</p>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => nav('/login')}
+                    >
+                    Login
+                    </Button>
+                    <p>New to PhoneBook? Register to create an account.</p>         
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        onClick={() => nav('/register')}        
+                    >
+                    Register
+                    </Button>
+                </Card>
+            </Container>
+        </section>
     );
 };
 

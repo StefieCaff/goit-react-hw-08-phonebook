@@ -8,7 +8,7 @@ import Phonebook from "pages/Phonebook";
 import HeaderNav from './HeaderNav';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
-import Welcome from 'pages/Welcome';
+import StyledWelcome from 'pages/styled-welcome';
 
 export const App = () => {
   return (
@@ -19,7 +19,7 @@ export const App = () => {
           path="/"
           element={
             <PublicRoute>
-              <Welcome />
+              <StyledWelcome />
             </PublicRoute>
           }
         />
