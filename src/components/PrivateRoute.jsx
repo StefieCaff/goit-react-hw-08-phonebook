@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
     const logIn = useSelector(isLoggedIn);
     return (
         <div>
-            {logIn ? children : <Navigate to="/login" />}
+            {logIn ? children : <Navigate to="/" />}
         </div>)
 };
 

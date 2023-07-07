@@ -13,12 +13,12 @@ const Register = () => {
     });
     const nav = useNavigate();
     const dispatch = useDispatch();
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(registerUser(formData).then(() => {
-            // add error checking
-            nav('/');
-        }))
+        dispatch(registerUser(formData)).then(()=> {
+            nav('/')
+        })
     };
 
     return (

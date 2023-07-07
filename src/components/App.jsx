@@ -8,6 +8,7 @@ import Phonebook from "pages/Phonebook";
 import HeaderNav from './HeaderNav';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
+import Welcome from 'pages/Welcome';
 
 export const App = () => {
   return (
@@ -16,6 +17,14 @@ export const App = () => {
       <Routes>
         <Route
           path="/"
+          element={
+            <PublicRoute>
+              <Welcome />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/phonebook"
           element={
             <PrivateRoute>
               <Phonebook />

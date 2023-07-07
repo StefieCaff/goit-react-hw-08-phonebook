@@ -34,7 +34,7 @@ const HeaderNav = () => {
                     </Link>
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Phonebook
+                    <Link to={'/'}>Phonebook</Link>
                 </Typography>
                 {loggedIn
                     ? (
@@ -52,7 +52,14 @@ const HeaderNav = () => {
                     >
                         Login
                     </Button>
-                )}
+                            
+                        )}
+                    <Button
+                        color='inherit'
+                        onClick={() => nav('/register')}
+                    >
+                        Register
+                    </Button>
             </Toolbar>
             </AppBar>
         </Box>
