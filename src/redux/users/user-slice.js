@@ -16,17 +16,17 @@ const userSlice = createSlice({
         builder
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.isLoggedIn = true;
-                console.log(action.payload);
+                console.log(action.payload, 'ap');
                 console.log(state.isLoggedIn);
             })
             .addCase(logOutUser.fulfilled, (state) => {
                 state.isLoggedIn = false;
+                console.log(state.isLoggedIn);
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.isLoggedIn = true;
-                state.user = action.payload;
                 console.log(action.payload);
-                console.log(state.isLoggedIn);
+                console.log(state.user);
             })
     },
 });

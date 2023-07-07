@@ -16,8 +16,14 @@ const Register = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(registerUser(formData)).then(()=> {
-            nav('/')
+        dispatch(registerUser(formData))
+            .then(() => {
+                if (formData.length !== 0) {
+            nav('/')  
+            }
+                else {
+                    console.log("error");
+                }
         })
     };
 
