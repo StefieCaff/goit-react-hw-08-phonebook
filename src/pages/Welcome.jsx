@@ -12,7 +12,7 @@ const Welcome = ({className}) => {
                     
                 }}
             >
-                <h1>Welcome to PhoneBook!</h1>
+                <h1 className='h1-style'>Welcome to PhoneBook!</h1>
                 <Card sx={{
                     padding: '10px 15px',
                     display: 'flex',

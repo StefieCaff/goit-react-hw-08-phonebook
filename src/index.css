@@ -40,12 +40,15 @@ img {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 section {
   padding: 20px 0;
 }
 
-p {
-  padding-right: 10px;
+.h1-style {
+    margin: 20px 0;
+    font-size: 26px;
+    text-align: center;
 }

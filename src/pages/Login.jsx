@@ -11,7 +11,9 @@ const Login = () => {
                 margin: '100px 0px'
             }}
         >
+            <h1 className='h1-style'>Login</h1>
             <Card sx={{ padding: '20px 20px' }}>
+                
                 <form style={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -40,7 +42,7 @@ const Login = () => {
                         autoComplete='true'
                     />
                     <div style={{margin: '10px 15px'}}>
-                        <Button sx={{margin: '0 10px 0 0'}}type="submit" variant="contained">
+                        <Button sx={{margin: '0 20px 0 0'}}type="submit" variant="contained">
                             Continue
                         </Button>
                         <Link to={'/register'}>

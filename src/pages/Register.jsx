@@ -30,7 +30,9 @@ const Register = () => {
                 margin: '100px 0px'
             }}
         >
+            <h1 className='h1-style'>Register</h1>
             <Card sx={{ padding: '20px 20px' }}>
+                
                 <form style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -85,8 +87,8 @@ const Register = () => {
                         variant="standard"
                         autoComplete='true'
                     />
-                    <div style={{margin: '10px 15px'}}>
-                        <Button sx={{margin: '0 10px 0 0'}} type="submit" variant="contained">
+                    <div style={{margin: '15px 30px'}}>
+                        <Button sx={{margin: '0 20px 0 0'}} type="submit" variant="contained">
                             Continue
                         </Button>
                         <Link to={'/login'}>
