@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Notify } from 'notiflix';
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/bootstrap.css";
+// import PhoneInput from "react-phone-input-2";
+// import "react-phone-input-2/lib/bootstrap.css";
+
 import { getContacts, postContacts } from 'redux/contacts/operators';
 import { getPhonebook } from 'redux/contacts/selectors';
 

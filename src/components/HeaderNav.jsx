@@ -57,6 +57,7 @@ const HeaderNav = () => {
                     <Button
                         color='inherit'
                         onClick={() => nav('/register')}
+                        
                     >
                         Register
                     </Button>
