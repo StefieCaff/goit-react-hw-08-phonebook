@@ -1,7 +1,27 @@
+import { useState } from 'react';
+import { useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { loginUser } from 'redux/users/operators';
+
 import { Button, Card, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+    });
+    const nav = useNavigate();
+    const dispatch = useDispatch();
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(loginUser(formData)).then(()=> {
+            nav('/')
+        })
+    };
     return (
         <div style={{
                 display: 'flex',
@@ -19,9 +39,15 @@ const Login = () => {
                         flexDirection: 'column',
                         alignItems: 'center',
                     }}
+                    onSubmit={handleSubmit}
                 >
                     <label htmlFor='email'></label>
                     <TextField sx={{ margin: '5px' }}
+                        name="name"
+                        value={formData.name}
+                        onChange={e =>
+                            setFormData({ ...formData, [e.target.name]: e.target.value })
+                        }
                         label="Email"
                         type="email"
                         required
@@ -32,6 +58,11 @@ const Login = () => {
                     />
                     <label htmlFor='password'></label>
                     <TextField sx={{ margin: '5px' }}
+                        name="password"
+                        value={formData.password}
+                        onChange={e =>
+                            setFormData({ ...formData, [e.target.name]: e.target.value })
+                        }
                         label="Password"
                         type="password"
                         required

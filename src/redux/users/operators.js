@@ -23,6 +23,17 @@ export const registerUser = createAsyncThunk("user/register", async data => {
     }
 });
 
+export const loginUser = createAsyncThunk("user/login", async () => {
+    try {
+        const response = await axios.post("/users/login");
+        token.set(response.data.token);
+        return response.data;
+    } catch (error) {
+        console.log('error', error);
+        return error;
+    }
+});
+
 export const logOutUser = createAsyncThunk("user/logout", async () => {
     try {
         await axios.post("/users/logout");
