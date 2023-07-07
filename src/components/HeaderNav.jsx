@@ -45,22 +45,23 @@ const HeaderNav = () => {
                         Logout
                     </Button>
                     )
-                    : (
+                        : (
+                            <>
                     <Button
                         color="inherit"
                         onClick={() => nav('/login')}
                     >
-                        Login
+                    Login
                     </Button>
-                            
-                        )}
                     <Button
                         color='inherit'
                         onClick={() => nav('/register')}
                         
                     >
                         Register
-                    </Button>
+                    </Button>      
+                    </>        
+                    )}
             </Toolbar>
             </AppBar>
         </Box>
