@@ -30,9 +30,8 @@ const Register = () => {
                 margin: '100px 0px'
             }}
         >
-            <h1 className='h1-style'>Register</h1>
-            <Card sx={{ padding: '20px 20px' }}>
-                
+            <Card sx={{ padding: '20px 30px' }}>
+                <h1 className='h1-style'>Register</h1>
                 <form style={{
                     display: 'flex',
                     flexDirection: 'column',

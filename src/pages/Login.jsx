@@ -31,9 +31,8 @@ const Login = () => {
                 margin: '100px 0px'
             }}
         >
-            <h1 className='h1-style'>Login</h1>
-            <Card sx={{ padding: '20px 20px' }}>
-                
+            <Card sx={{ padding: '20px 30px' }}>
+                 <h1 className='h1-style'>Login</h1>
                 <form style={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -43,8 +42,8 @@ const Login = () => {
                 >
                     <label htmlFor='email'></label>
                     <TextField sx={{ margin: '5px' }}
-                        name="name"
-                        value={formData.name}
+                        name="email"
+                        value={formData.email}
                         onChange={e =>
                             setFormData({ ...formData, [e.target.name]: e.target.value })
                         }

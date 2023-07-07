@@ -23,9 +23,14 @@ export const registerUser = createAsyncThunk("user/register", async data => {
     }
 });
 
-export const loginUser = createAsyncThunk("user/login", async () => {
+export const loginUser = createAsyncThunk("user/login", async (data) => {
+    const newUser = {
+        email: data.email,
+        password: data.password
+    }
+    console.log(newUser, "nU");
     try {
-        const response = await axios.post("/users/login");
+        const response = await axios.post("/users/login", newUser);
         token.set(response.data.token);
         return response.data;
     } catch (error) {

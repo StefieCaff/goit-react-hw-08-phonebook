@@ -24,6 +24,7 @@ const userSlice = createSlice({
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.isLoggedIn = true;
+                state.user = action.payload;
                 console.log(action.payload);
                 console.log(state.isLoggedIn);
             })
