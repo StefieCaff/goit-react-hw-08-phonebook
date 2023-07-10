@@ -16,7 +16,7 @@ const userSlice = createSlice({
         builder
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.isLoggedIn = true;
-                console.log(action.payload, 'ap');
+                console.log(action.payload);
                 console.log(state.isLoggedIn);
             })
             .addCase(logOutUser.fulfilled, (state) => {

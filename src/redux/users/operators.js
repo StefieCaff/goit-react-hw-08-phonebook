@@ -18,7 +18,6 @@ export const registerUser = createAsyncThunk('user/signup', async data => {
     token.set(response.data.token);
     return response.data;
   } catch (err) {
-      console.log('error', err);
     return err;
   }
 });
