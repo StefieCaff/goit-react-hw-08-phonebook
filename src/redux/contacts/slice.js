@@ -11,7 +11,7 @@ const initialState = {
     filter: ""
 };
 
-const rootReducer = createSlice({
+const contactsReducer = createSlice({
     name: 'phonebook',
     initialState,
     reducers: {
@@ -57,6 +57,6 @@ const rootReducer = createSlice({
     
 });
 
-export const { searchContacts } = rootReducer.actions
-export default rootReducer.reducer;
+export const { searchContacts } = contactsReducer.actions
+export default contactsReducer.reducer;
 

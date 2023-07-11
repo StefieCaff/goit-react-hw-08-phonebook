@@ -5,7 +5,7 @@ import { registerUser, logOutUser, loginUser } from './operators';
 const initialState = {
     user: { name: null, email: null },
     token: null,
-    isLoggedIn: false,
+    isLoggedIn: true,
 };
 
 const userSlice = createSlice({
@@ -15,6 +15,8 @@ const userSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(registerUser.fulfilled, (state, action) => {
+                state.user = action.payload.user;
+                state.token = action.payload.token;
                 state.isLoggedIn = true;
                 console.log(action.payload);
                 console.log(state.isLoggedIn);
@@ -31,4 +33,4 @@ const userSlice = createSlice({
     },
 });
 
-export default userSlice.reducer;
+export const authReducer = userSlice.reducer;

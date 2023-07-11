@@ -2,7 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Notify } from "notiflix";
 
-import { getFilter, getPhonebook } from "redux/contacts/selectors";
+import { getFilter } from "redux/contacts/filter-slice";
+import { getPhonebook } from "redux/contacts/selectors";
 import { deleteContacts, getContacts } from "redux/contacts/operators";
 import { searchContacts } from "redux/contacts/slice";
 import searchFunction from "utils/filter";
