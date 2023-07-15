@@ -5,7 +5,7 @@ import { registerUser, logOutUser, loginUser } from './operators';
 const initialState = {
     user: { name: null, email: null },
     token: null,
-    isLoggedIn: true,
+    isLoggedIn: false,
 };
 
 const userSlice = createSlice({
