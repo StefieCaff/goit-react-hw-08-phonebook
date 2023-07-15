@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Box } from "@mui/system";
 
-//import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import Phonebook from "pages/Phonebook";
 import HeaderNav from './HeaderNav';
@@ -26,9 +26,9 @@ export const App = () => {
         <Route
           path="/phonebook"
           element={
-            <PublicRoute>
+            <PrivateRoute>
               <Phonebook />
-            </PublicRoute>}
+            </PrivateRoute>}
         />      
         <Route
           path="/register"

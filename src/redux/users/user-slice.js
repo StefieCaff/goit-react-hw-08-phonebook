@@ -15,9 +15,9 @@ const userSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(registerUser.fulfilled, (state, action) => {
+                state.isLoggedIn = true;
                 state.user = action.payload.user;
                 state.token = action.payload.token;
-                state.isLoggedIn = true;
                 console.log(action.payload);
                 console.log(state.isLoggedIn);
             })
@@ -28,7 +28,7 @@ const userSlice = createSlice({
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.isLoggedIn = true;
                 console.log(action.payload);
-                console.log(state.user);
+                console.log(state.isLoggedIn);
             })
     },
 });

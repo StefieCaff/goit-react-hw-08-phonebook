@@ -1,5 +1,5 @@
 const searchFunction = (contacts, search) => {
-    // eslint-disable-next-line array-callback-return
+    // eslint-disable-next-line
     return contacts.filter( contact => {
         const contactName = contact.name.toLowerCase();
         const searchName = search.toLowerCase();
@@ -9,7 +9,7 @@ const searchFunction = (contacts, search) => {
             return contactName.includes(searchName);
         } else if (contactNumber.includes(searchNumber)) {
             return contactNumber.includes(searchNumber);
-        };
+        }; 
     });
 };
 

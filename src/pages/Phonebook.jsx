@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Notify } from "notiflix";
 
-import { getFilter } from "redux/contacts/filter-slice";
+import { getFilter } from "redux/contacts/selectors";
 import { getPhonebook } from "redux/contacts/selectors";
 import { deleteContacts, getContacts } from "redux/contacts/operators";
 import { searchContacts } from "redux/contacts/slice";
