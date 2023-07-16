@@ -18,8 +18,13 @@ const Login = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(loginUser(formData)).then(()=> {
-            nav('/')
+        dispatch(loginUser(formData))
+            .then(() => {
+                console.log('Successfully logged in!');
+                nav('/')
+            })
+            .catch((error) => {
+            console.error('login failed', error);
         })
     };
     return (
