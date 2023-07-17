@@ -20,7 +20,7 @@ const Login = () => {
         e.preventDefault();
         dispatch(loginUser(formData))
             .then(() => {
-                Notify.success(`Welcome back ${formData.name} you are successfully logged in!`);
+                Notify.success(`Welcome back you are successfully logged in!`);
                 nav('/phonebook')
             })
             .catch((error) => {

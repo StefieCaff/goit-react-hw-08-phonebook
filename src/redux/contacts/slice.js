@@ -20,8 +20,10 @@ const contactsSlice = createSlice({
         },
     },
     extraReducers: builder => {
+       
+        builder
         //* Get contacts from API/db
-        builder.addCase(getContacts.pending, state => {
+            .addCase(getContacts.pending, state => {
             state.contacts.isLoading = true;
         })
             .addCase(getContacts.fulfilled, (state, action) => {
