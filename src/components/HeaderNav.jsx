@@ -11,14 +11,17 @@ import IconButton from '@mui/material/IconButton';
 
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import { Link } from 'react-router-dom';
-import { isLoggedIn, user } from 'redux/users/selectors';
+import {
+    isLoggedIn,
+    //user
+} from 'redux/users/selectors';
 import { logOutUser } from 'redux/users/operators';
 
 const HeaderNav = () => {
     const nav = useNavigate();
     const dispatch = useDispatch();
     const loggedIn = useSelector(isLoggedIn);
-    const userEmail = useSelector(user);
+    //const userEmail = useSelector(user);
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -43,9 +46,9 @@ const HeaderNav = () => {
                         color="inherit"
                         onClick={() => dispatch(logOutUser())}
                     >        
-                        <p style={{ marginRight: 10 }}>
+                        {/* <p style={{ marginRight: 10 }}>
                             {userEmail}
-                        </p>
+                        </p> */}
                         Logout
                     </Button>
                     )
