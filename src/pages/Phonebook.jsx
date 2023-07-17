@@ -77,7 +77,7 @@ const Phonebook = () => {
                             searchedContacts.map(contact => (
                                 <ListItem key={contact.id}>
                                     <p>{contact.name}</p>
-                                    <p>{contact.phone}</p>
+                                    <p>{contact.number}</p>
                                     <IconButton
                                         onClick={() => onDelete(contact.id)}
                                         aria-label="delete"

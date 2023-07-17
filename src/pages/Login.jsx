@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
+import { Notify } from 'notiflix';
 import { loginUser } from 'redux/users/operators';
 
 import { Button, Card, TextField } from '@mui/material';
@@ -20,11 +20,12 @@ const Login = () => {
         e.preventDefault();
         dispatch(loginUser(formData))
             .then(() => {
-                console.log('Successfully logged in!');
+                Notify.success(`Welcome back ${formData.name} you are successfully logged in!`);
                 nav('/phonebook')
             })
             .catch((error) => {
                 console.error('login failed', error);
+                Notify.failure('login failed please try again in a few moments.')
                 nav('/')
         })
     };
