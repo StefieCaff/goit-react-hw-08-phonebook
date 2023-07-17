@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Notify } from "notiflix";
 
 import { getFilter } from "redux/contacts/selectors";
@@ -17,21 +17,39 @@ import Container from '@mui/material/Container';
 
 const Phonebook = () => {
     const dispatch = useDispatch();
-    const contacts = useSelector(getPhonebook)
+    const contacts = useSelector(getPhonebook);
+    console.log(contacts);
     const search = useSelector(getFilter);
-    const searchedContacts = searchFunction(contacts, search);
+    const [searchedContacts, setSearchedContacts] = useState(contacts);
 
     useEffect(() => {
         dispatch(getContacts());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [dispatch])
     
+    useEffect(() => {
+        // Update searchedContacts whenever contacts or search changes
+        if (search) {
+            const filteredContacts = searchFunction(contacts, search);
+            setSearchedContacts(filteredContacts);
+        }
+        else {
+            // If search is empty, reset searchedContacts to all contacts
+            setSearchedContacts(contacts);
+        }
+    },[contacts, search])
+
     const onDelete = (id) => {
         dispatch(deleteContacts(id)).then(() => {
+            // Notify info after the delete is successful
+            const deletedContact = searchedContacts.find(
+                searchedContact => searchedContact.id === id
+            );
+            Notify.info(
+                `${deletedContact.name} has been deleted from your phonebook
+            `);
+
+            // After delete is successful, dispatch getContacts to refresh the contacts list
             dispatch(getContacts());
-            const deletedContact =searchedContacts.find(searchedContact => searchedContact.id === id)
-            Notify.info(`${deletedContact.name} has been deleted from your phonebook`);
-            console.log(deletedContact, 'dC');
         });
     };
 
@@ -53,9 +71,9 @@ const Phonebook = () => {
                         fullWidth={true}
                     />
                     <h3 style={{ margin: '10px 0px' }}>Contacts</h3>
-                    {contacts.length > 0 ?
+                    {contacts.length > 0 ? (
                     <List>
-                        {searchedContacts.length > 0 ?
+                        {searchedContacts.length > 0 ? (
                             searchedContacts.map(contact => (
                                 <ListItem key={contact.id}>
                                     <p>{contact.name}</p>
@@ -66,11 +84,19 @@ const Phonebook = () => {
                                         size="small">
                                         <DeleteIcon fontSize="small" />
                                     </IconButton>
-                                </ListItem>))
-                        : <p style={{ margin: '5px' }}>There are no saved contacts that match your search .</p>
-                        }
+                                </ListItem>
+                            ))
+                        ) : (
+                            <p style={{ margin: '5px' }}>
+                                There are no saved contacts that match your search .
+                            </p>
+                            )}
                     </List>
-                    : <p style={{ margin: '5px' }}>There are not any contacts saved yet.</p>}
+                   ) : (
+                        <p style={{ margin: '5px' }}>
+                            There are not any contacts saved yet.
+                        </p>
+                   )}
                 </Card>
             </Container>
         </section>

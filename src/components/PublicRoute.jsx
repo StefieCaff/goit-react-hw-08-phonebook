@@ -8,7 +8,7 @@ const PublicRoute = ({ children }) => {
 
     return (
         <div>
-            {!logIn ? children : <Navigate to="/phonebook" />}
+            {!logIn ? children : <Navigate to="/phonebook" replace/>}
         </div>
     );
 };

@@ -18,6 +18,7 @@ const Form = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(getPhonebook);
     console.log(contacts, 'contacts');
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         if (formData.name === '' || formData.number === '') {
@@ -27,7 +28,7 @@ const Form = () => {
             contact => contact.name === formData.name
         );
         const existingNumber = contacts.some(
-            contact => contact.phone === formData.number
+            contact => contact.number === formData.number
         );
         if (existingName) {
             Notify.warning(`${formData.name} is already in your contact list`);
@@ -42,7 +43,9 @@ const Form = () => {
                 name: '',
                 number: ''
             })
-            Notify.success(`${formData.name} has been added to your phonebook.`)
+            Notify.success(
+                `${formData.name} has been added to your phonebook.`
+            )
         });
     };
 
@@ -87,7 +90,7 @@ const Form = () => {
                     fullWidth={true}
                     id="number"
                     label="Number"
-                    aria-describedby="Please enter your number"
+                    aria-describedby="Please enter your telephone number"
                     variant="standard"
                 />    
                    
@@ -104,7 +107,12 @@ const Form = () => {
                     }
                     /> */}
 
-                <Button sx={{ margin: '50px 0 0 0' }} color="primary" fullWidth={true} aria-label="add-contact button" type='submit' variant="outlined" endIcon={<AddIcon/>}>
+                    <Button sx={{ margin: '50px 0 0 0' }}
+                        type='submit'
+                        color="primary" fullWidth={true}
+                        aria-label="add-contact button"
+                        variant="outlined"
+                        endIcon={<AddIcon />}>
                     Add
                 </Button>
             </form>

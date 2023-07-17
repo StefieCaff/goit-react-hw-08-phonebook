@@ -18,11 +18,12 @@ const Register = () => {
         e.preventDefault();
         dispatch(registerUser(formData))
             .then(() => {
-                console.log('Successfully logged in!');
-                nav('/')
+                console.log('Successfully registered!');
+                nav('/phonebook')
             })
             .catch((error) => {
-            console.error('login failed', error);
+                console.error('registration failed', error);
+                nav('/')
         })
     };
 

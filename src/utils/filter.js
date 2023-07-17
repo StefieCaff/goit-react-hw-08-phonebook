@@ -1,15 +1,19 @@
 const searchFunction = (contacts, search) => {
-    // eslint-disable-next-line
-    return contacts.filter( contact => {
-        const contactName = contact.name.toLowerCase();
-        const searchName = search.toLowerCase();
-        const contactNumber = contact.phone.trim();
-        const searchNumber = search.trim();
-        if (contactName.includes(searchName)) {
-            return contactName.includes(searchName);
-        } else if (contactNumber.includes(searchNumber)) {
-            return contactNumber.includes(searchNumber);
-        }; 
+    if (!Array.isArray(contacts) || contacts.length === 0 || !search) {
+        return [];
+    };
+    
+    const searchInput = search.toLowerCase().trim();
+
+    return contacts.filter(contact => {
+        const contactName =
+            contact.name ? contact.name.toLowerCase().trim() : '';
+        const contactNumber =
+            contact.number ? contact.number.trim() : '';
+        
+        return (
+            contactName.includes(searchInput) || contactNumber.includes(searchInput)
+        ); 
     });
 };
 

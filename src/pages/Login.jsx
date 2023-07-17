@@ -21,12 +21,14 @@ const Login = () => {
         dispatch(loginUser(formData))
             .then(() => {
                 console.log('Successfully logged in!');
-                nav('/')
+                nav('/phonebook')
             })
             .catch((error) => {
-            console.error('login failed', error);
+                console.error('login failed', error);
+                nav('/')
         })
     };
+
     return (
         <div style={{
                 display: 'flex',

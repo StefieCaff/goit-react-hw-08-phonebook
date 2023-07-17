@@ -21,7 +21,7 @@ const Welcome = ({className}) => {
                 }}>
                     
                     <h2>Keep your contact's information secure</h2>
-                    <p>Registered? Use an email and password to login!</p>
+                    <p>Already registered? Use an email and password to login!</p>
                     <Button
                         variant="contained"
                         color="primary"
