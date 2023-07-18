@@ -47,7 +47,7 @@ const HeaderNav = () => {
                         <></>    
                     )
                 }
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 600, marginBottom: .5}}>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 500, marginBottom: .5}}>
                     <Link to={'/'}>PhoneBook</Link>
                 </Typography>
                 {loggedIn
