@@ -6,7 +6,6 @@ const initialState = {
     user: { name: null, email: null },
     token: null,
     isLoggedIn: false,
-    isLoading: false,
     error: null,
 };
 
@@ -24,7 +23,6 @@ const userSlice = createSlice({
             })
             .addCase(registerUser.pending, state => {
                 state.isLoggedIn = false;
-                state.isLoading = true;
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.isLoggedIn = false;
@@ -37,7 +35,6 @@ const userSlice = createSlice({
             })
             .addCase(logOutUser.pending, state => {
                 state.isLoggedIn = false;
-                state.isLoading = true;
             })
             .addCase(logOutUser.rejected, (state, action) => {
                 state.isLoggedIn = false;
@@ -51,7 +48,6 @@ const userSlice = createSlice({
             })
             .addCase(loginUser.pending, state => {
                 state.isLoggedIn = false;
-                state.isLoading = true;
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.isLoggedIn = false;
