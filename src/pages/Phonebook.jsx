@@ -10,7 +10,7 @@ import searchFunction from "utils/filter";
 
 import Form from "components/Form";
 
-import { TextField, IconButton, Card, List, ListItem } from "@mui/material";
+import { TextField, IconButton, Card, List, ListItem, Typography } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import Container from '@mui/material/Container';
@@ -76,14 +76,16 @@ const Phonebook = () => {
                         {searchedContacts.length > 0 ? (
                             searchedContacts.map(contact => (
                                 <ListItem key={contact.id}>
-                                    <p>{contact.name}</p>
-                                    <p>{contact.number}</p>
                                     <IconButton
                                         onClick={() => onDelete(contact.id)}
                                         aria-label="delete"
-                                        size="small">
+                                        size="small"
+                                        sx={{marginRight: 1}}>
                                         <DeleteIcon fontSize="small" />
                                     </IconButton>
+                                    <Typography  variant="Subtitle2" sx={{marginRight: 2}}>{contact.name}</Typography>
+                                    <Typography variant="subtitle1">{contact.number}</Typography>
+                                    
                                 </ListItem>
                             ))
                         ) : (
