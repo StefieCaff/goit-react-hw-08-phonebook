@@ -24,8 +24,6 @@ const HeaderNav = () => {
     const { width } = useViewPort();
     const breakpoint = 319;
  
-    
-
     return (
         <Box sx={{
             flexGrow: 1,
