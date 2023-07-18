@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,26 +12,19 @@ import IconButton from '@mui/material/IconButton';
 
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import { Link } from 'react-router-dom';
-import {
-    isLoggedIn,
-    user
-} from 'redux/users/selectors';
+import { isLoggedIn, user } from 'redux/users/selectors';
 import { logOutUser } from 'redux/users/operators';
+import useViewPort from 'utils/hooks';
 
 const HeaderNav = () => {
     const nav = useNavigate();
     const dispatch = useDispatch();
     const loggedIn = useSelector(isLoggedIn);
     const userEmail = useSelector(user);
-    const [width, setWidth] = useState(window.innerWidth);
+    const { width } = useViewPort();
     const breakpoint = 319;
  
-    useEffect(() => {
-        const handleResize= () => setWidth(window.innerWidth)
-        window.addEventListener('resize', handleResize);
-        
-    return () => window.removeEventListener('resize', handleResize)
-    },[])
+    
 
     return (
         <Box sx={{
