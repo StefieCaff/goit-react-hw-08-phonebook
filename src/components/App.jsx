@@ -6,8 +6,8 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import HeaderNav from './HeaderNav';
 
+const HeaderNav = lazy(()=> import ("./HeaderNav"))
 const Phonebook = lazy(()=> import ("pages/Phonebook"));
 const Login = lazy(()=> import ('pages/Login'));
 const Register = lazy(()=> import ('pages/Register'));
@@ -17,7 +17,9 @@ const StyledWelcome = lazy(()=> import  ('pages/styled-welcome'));
 export const App = () => {
   return (
     <Box>
-      <HeaderNav />
+      <Suspense fallback={<LinearProgress color="secondary" />}>
+        <HeaderNav />
+      </Suspense>
       <Routes>
         <Route
           path="/"
@@ -51,7 +53,7 @@ export const App = () => {
         <Route
           path="/login"
           element={
-            <Suspense fallback={<LinearProgress/>}>
+            <Suspense fallback={<LinearProgress color="secondary"/>}>
               <PublicRoute>
                 <Login />
               </PublicRoute>
