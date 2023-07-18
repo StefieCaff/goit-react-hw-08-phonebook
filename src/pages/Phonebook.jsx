@@ -18,7 +18,6 @@ import Container from '@mui/material/Container';
 const Phonebook = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(getPhonebook);
-    console.log(contacts);
     const search = useSelector(getFilter);
     const [searchedContacts, setSearchedContacts] = useState(contacts);
 

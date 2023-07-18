@@ -17,7 +17,6 @@ const Form = () => {
     });
     const dispatch = useDispatch();
     const contacts = useSelector(getPhonebook);
-    console.log(contacts, 'contacts');
     
     const handleSubmit = (e) => {
         e.preventDefault();
