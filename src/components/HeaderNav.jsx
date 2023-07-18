@@ -13,7 +13,7 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import { Link } from 'react-router-dom';
 import {
     isLoggedIn,
-    //user
+    user
 } from 'redux/users/selectors';
 import { logOutUser } from 'redux/users/operators';
 
@@ -21,7 +21,7 @@ const HeaderNav = () => {
     const nav = useNavigate();
     const dispatch = useDispatch();
     const loggedIn = useSelector(isLoggedIn);
-    //const userEmail = useSelector(user);
+   const userEmail = useSelector(user);
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -42,32 +42,32 @@ const HeaderNav = () => {
                 </Typography>
                 {loggedIn
                     ? (
-                    <Button
-                        color="inherit"
-                        onClick={() => dispatch(logOutUser())}
-                    >        
-                        {/* <p style={{ marginRight: 10 }}>
-                            {userEmail}
-                        </p> */}
-                        Logout
-                    </Button>
-                    )
-                        : (
-                    <>
-                        <Button
-                            color="inherit"
-                            onClick={() => nav('/login')}
-                        >
-                            Login
-                        </Button>
-                        <Button
-                            color='inherit'
-                            onClick={() => nav('/register')}
-                        
-                        >
-                            Register
-                        </Button>      
-                    </>        
+                        <>
+                            <p style={{ marginRight: 10 }}>
+                                {userEmail}
+                            </p>
+                            <Button
+                                color="inherit"
+                                onClick={() => dispatch(logOutUser())}
+                            >
+                                 Logout
+                            </Button>
+                        </>
+                    ) : (
+                        <>
+                            <Button
+                                color="inherit"
+                                onClick={() => nav('/login')}
+                             >
+                                Login
+                            </Button>
+                            <Button
+                                color='inherit'
+                                onClick={() => nav('/register')}
+                            >
+                                Register
+                            </Button>      
+                        </>        
                     )}
             </Toolbar>
             </AppBar>

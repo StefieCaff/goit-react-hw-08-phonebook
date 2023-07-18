@@ -2,7 +2,6 @@ import { Button, Card, TextField } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Notify } from 'notiflix';
 
 import { registerUser } from 'redux/users/operators';
 
@@ -19,12 +18,10 @@ const Register = () => {
         e.preventDefault();
         dispatch(registerUser(formData))
             .then(() => {
-                Notify.success(`${formData.name} you are successfully registered! You may now login and out to PhoneBook.`);
                 nav('/phonebook')
             })
             .catch((error) => {
                 console.error('registration failed', error);
-                Notify.failure('login failed please try again in a few moments.')
                 nav('/')
         })
     };
