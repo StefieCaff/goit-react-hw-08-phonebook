@@ -20,7 +20,7 @@ const Welcome = ({className}) => {
                     justifyContent: 'space-between'
                 }}>
                     
-                    <h2>Keep your contact's information secure</h2>
+                    <h2>Keep your contact information secure</h2>
                     <p>Already registered? Use an email and password to login!</p>
                     <Button
                         variant="contained"
