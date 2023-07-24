@@ -20,7 +20,7 @@ const HeaderNav = () => {
     const nav = useNavigate();
     const dispatch = useDispatch();
     const loggedIn = useSelector(isLoggedIn);
-    const userEmail = useSelector(user);
+    const userName = useSelector(user);
     const { width } = useViewPort();
     const breakpoint = 319;
  
@@ -54,7 +54,7 @@ const HeaderNav = () => {
                     ? (
                         <>
                             <p style={{ marginRight: 10 }}>
-                                {userEmail}
+                                {userName}
                             </p>
                             <Button
                                 color="inherit"
